@@ -13,15 +13,13 @@ public class TestQuoteOfTheDay {
     public void testWriteQuoteOfTheDay(){
         String quote = "never a failure always a lesson";
         QuoteOfTheDay quoteOfTheDay = new QuoteOfTheDay();
+        String actual_quote = "";
+
         try {
             quoteOfTheDay.writeQuoteOfTheDay(quote);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        String actual_quote = "";
-        try {
             BufferedReader br = new BufferedReader(new FileReader(quoteOfTheDay.getFd()));
             actual_quote = br.readLine();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
